@@ -6,7 +6,7 @@
       style="width:53%"
     >
       <a
-        href="https://duckduckgo.com/?q=cute+cat+pictures&iax=images&ia=images"
+        href="https://search.brave.com/images?q=cute%20cat%20pics&source=web"
         target="_blank"
         ><span class="text-2xl font-semibold tracking-wide text-mainred"
           >joy</span
