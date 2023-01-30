@@ -1,5 +1,5 @@
-<div class="grid grid-cols-3 py-6">
-  <div class="h-10 lg:p-16 p-4" />
+<div class="grid grid-cols-3">
+  <div class="h-10 lg:p-16 m-4" />
   <div class="md:col-span-2 col-span-3 flex flex-col items-end">
     <div
       class="m-0.5 rounded-l-xl bg-c1 h-12 flex items-center pl-4"
