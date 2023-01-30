@@ -1,0 +1,30 @@
+---
+import Header from "../components/Header.svelte";
+import Footer from "../components/Footer.svelte";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="climbing the red mountain" />
+    <title>{title}</title>
+  </head>
+  <body class="flex flex-col h-screen justify-between bg-mainred text-white">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <div class="flex-grow"></div>
+    <Footer />
+  </body>
+</html>
