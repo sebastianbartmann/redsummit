@@ -1,107 +1,69 @@
-<script>
-  import { onMount } from "svelte";
-  import { clickOutside } from "./../services/clickOutside.js";
-
-  // Show mobile icon and display menu
-  let showMobileMenu = false;
-
-  // Mobile menu click event handler
-  const handleMobileIconClick = () => (showMobileMenu = !showMobileMenu);
-
-  function handleClickOutside(event) {
-    showMobileMenu = false;
-  }
-
-  // Media match query handler
-  const mediaQueryHandler = (e) => {
-    // Reset mobile state
-    if (!e.matches) {
-      showMobileMenu = false;
-    }
-  };
-
-  // Attach media query listener on mount hook
-  onMount(() => {
-    const mediaQueryListener = window.matchMedia("(max-width: 767px)");
-
-    mediaQueryListener.addEventListener("change", mediaQueryHandler);
-  });
-</script>
-
 <nav>
-  <div class="mx-auto flex items-center justify-between flex-wrap p-6">
-    <a class="flex" href="/">
-      <img class="shadow-xl h-8 mr-4" src="/profile_pic.png" alt="redSummit" />
-      <span class="font-semibold text-xl tracking-tight text-white"
-        >redSummit</span
-      ></a
-    >
-
-    <!--lg-->
-    <div class="hidden lg:flex lg:items-center lg:w-auto text-white">
-      <div class="text-sm lg:flex-grow">
-        <a
-          href="/about"
-          class="block mt-4 lg:inline-block lg:mt-0 hover:text-highlight mr-4"
+  <div class="navbar">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            /></svg
+          >
+        </label>
+        <ul
+          tabindex="0"
+          class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-snd rounded-box w-52"
         >
-          Other Stuff
-        </a>
-        <a
-          href="/about"
-          class="block mt-4 lg:inline-block lg:mt-0 hover:text-highlight"
-        >
-          About
-        </a>
+          <li><a>Dashboards</a></li>
+          <li><a>Projects</a></li>
+          <li><a>Blog</a></li>
+        </ul>
       </div>
+      <a class="flex" href="/">
+        <img
+          class="shadow-xl h-8 mr-4"
+          src="/profile_pic.png"
+          alt="redSummit"
+        />
+        <span class="font-semibold text-xl tracking-tight text-white"
+          >redSummit</span
+        ></a
+      >
     </div>
 
-    <!--mobile button-->
-    <div
-      class="lg:hidden"
-      use:clickOutside
-      on:click_outside={handleClickOutside}
-    >
-      <button
-        on:click={handleMobileIconClick}
-        class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
-      >
-        <svg
-          class="fill-current h-3 w-3"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-          ><title>Menu</title><path
-            d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
-          />
-        </svg>
-      </button>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a>Dashboards</a></li>
+        <li><a>Projects</a></li>
+        <li><a>Blog</a></li>
+      </ul>
     </div>
-  </div>
 
-  <!--mobile submenu-->
-  <div
-    class="text-right pr-6 pb-6 pl-6 {showMobileMenu
-      ? ' visible'
-      : 'invisible'}"
-  >
-    <div>
-      <div
-        class="{showMobileMenu
-          ? ' h-auto'
-          : 'h-0'} text-sm bg-secondary text-right p-2"
-      >
-        <a
-          href="/posts"
-          class="block mt-4 inline-block mt-0 hover:text-highlight mr-4"
-        >
-          Posts
-        </a>
-        <a
-          href="/about"
-          class="block mt-4 inline-block mt-0 hover:text-highlight "
-        >
-          About
-        </a>
-      </div>
+    <div class="navbar-end">
+      <a href="mailto:hey@bartmann.xyz" class="btn btn-ghost btn-circle">
+        <div class="indicator">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+            />
+          </svg>
+        </div>
+      </a>
     </div>
   </div>
 </nav>
