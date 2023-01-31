@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Post } from "../pages/posts/post";
+  import type { Post } from "../../pages/posts/post";
   let posts: Array<Post>;
   posts = [
     {
@@ -17,10 +17,10 @@
   ];
 </script>
 
-<div class="flex flex-col text-center">
+<div class="py-4 flex flex-col text-center">
   <ul class="posts">
     {#each posts as post}
-      <li class="py-4">
+      <li class="my-4">
         <a rel="prefetch" href="posts/{post.slug}">
           <h2 class="text-xl">
             {post.title}

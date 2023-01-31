@@ -3,10 +3,10 @@
 </script>
 
 <footer class="flex justify-between">
-  <span class="text-white mx-6 mb-2 lg:mb-6">
+  <span class="text-white m-6">
     © {new Date().getFullYear()}
   </span>
-  <span class="text-white flex space-x-2 mx-6 mb-2 lg:mb-6">
+  <span class="text-white flex space-x-2 m-6">
     <a href={"https://twitter.com/redsummitDev"}>
       <span class="sr-only">Twitter</span>
       <svg
