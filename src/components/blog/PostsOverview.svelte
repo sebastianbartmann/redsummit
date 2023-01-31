@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Post } from "../../pages/posts/post";
+  import type { Post } from "../../pages/blog/posts/post";
   let posts: Array<Post>;
   posts = [
     {
@@ -21,7 +21,7 @@
   <ul class="posts">
     {#each posts as post}
       <li class="my-4">
-        <a rel="prefetch" href="posts/{post.slug}">
+        <a rel="prefetch" href="/blog/posts/{post.slug}">
           <h2 class="text-xl">
             {post.title}
           </h2>

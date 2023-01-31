@@ -6,6 +6,13 @@
   <span class="text-white m-6">
     © {new Date().getFullYear()}
   </span>
+  <nav>
+    <ul class="flex space-x-4 m-6">
+      <li>
+        <a href="/about" class="text-white hover:text-highlight">src</a>
+      </li>
+    </ul>
+  </nav>
   <span class="text-white flex space-x-2 m-6">
     <a href={"https://twitter.com/redsummitDev"}>
       <span class="sr-only">Twitter</span>

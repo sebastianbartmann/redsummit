@@ -21,9 +21,9 @@
           tabindex="0"
           class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-snd rounded-box w-52"
         >
-          <li><a>Dashboards</a></li>
-          <li><a>Projects</a></li>
-          <li><a>Blog</a></li>
+          <li><a href="/dashboards/overview">Dashboards</a></li>
+          <li><a href="/projects/overview">Projects</a></li>
+          <li><a href="/blog/overview">Blog</a></li>
         </ul>
       </div>
       <a class="flex" href="/">
@@ -40,9 +40,9 @@
 
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
-        <li><a>Dashboards</a></li>
-        <li><a>Projects</a></li>
-        <li><a>Blog</a></li>
+        <li><a href="/dashboards/overview">Dashboards</a></li>
+        <li><a href="/projects/overview">Projects</a></li>
+        <li><a href="/blog/overview">Blog</a></li>
       </ul>
     </div>
 
