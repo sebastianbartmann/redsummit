@@ -11,7 +11,8 @@ import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
+  output: "server",
   integrations: [tailwind(), svelte()],
-  adapter: netlify()
+  adapter: netlify(),
+  //optimizeDeps: { include: ["@carbon/charts"] },
 });

@@ -1,31 +1,32 @@
 <script>
-  import {createChart} from 'lightweight-charts';
-
-  const chart = createChart(document.getElementById("chart"), {
-    layout: {
-      backgroundColor: "#860313",
-      textColor: "#F48EA3",
-    },
-    grid: {
-      vertLines: {
-        visible: false,
+  const chart = window.LightweightCharts.createChart(
+    document.getElementById("chart"),
+    {
+      layout: {
+        backgroundColor: "#860313",
+        textColor: "#F48EA3",
       },
-      horzLines: {
-        color: "#F48EA3",
+      grid: {
+        vertLines: {
+          visible: false,
+        },
+        horzLines: {
+          color: "#F48EA3",
+        },
       },
-    },
-    rightPriceScale: {
-      borderVisible: false,
-    },
-    timeScale: {
-      borderVisible: false,
-    },
-    crosshair: {
-      horzLine: {
-        visible: false,
+      rightPriceScale: {
+        borderVisible: false,
       },
-    },
-  });
+      timeScale: {
+        borderVisible: false,
+      },
+      crosshair: {
+        horzLine: {
+          visible: false,
+        },
+      },
+    }
+  );
   const lineSeries = chart.addLineSeries();
   lineSeries.setData([
     { time: "2019-04-11", value: 80.01 },
