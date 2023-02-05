@@ -4,7 +4,11 @@ export const prerender = true;
 import Layout from "../../layouts/Layout.astro";
 import LineChart from "../../components/dashboards/LineChart.astro";
 
-let title = "comming soon";
+let title = "Dashboards";
+
+import { authOpts } from "../api/auth/[...astroAuth]";
+import { getSession } from "auth-astro";
+let session = await getSession(Astro.request, authOpts);
 ---
 
 <Layout title={title}>

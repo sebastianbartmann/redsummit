@@ -1,8 +1,17 @@
+---
+import { authOpts } from "../pages/api/auth/[...astroAuth]";
+import type { Session } from "@auth/core/types";
+import { Auth, SignIn, SignOut } from "auth-astro/components";
+import { getSession } from "auth-astro";
+
+let session = await getSession(Astro.request, authOpts);
+---
+
 <nav>
   <div class="navbar">
     <div class="navbar-start">
       <div class="dropdown">
-        <label tabindex="0" class="btn btn-ghost lg:hidden">
+        <label tabindex="0" class="btn-ghost btn lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
@@ -13,13 +22,12 @@
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M4 6h16M4 12h8m-8 6h16"
-            /></svg
+              d="M4 6h16M4 12h8m-8 6h16"></path></svg
           >
         </label>
         <ul
           tabindex="0"
-          class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-snd rounded-box w-52"
+          class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-snd p-2 shadow"
         >
           <li><a href="/dashboards/overview">Dashboards</a></li>
           <li><a href="/projects/overview">Projects</a></li>
@@ -28,11 +36,11 @@
       </div>
       <a class="flex" href="/">
         <img
-          class="shadow-xl h-8 mr-4"
+          class="mr-4 h-8 shadow-xl"
           src="/profile_pic.png"
           alt="redSummit"
         />
-        <span class="font-semibold text-xl tracking-tight text-white"
+        <span class="text-xl font-semibold tracking-tight text-white"
           >redSummit</span
         ></a
       >
@@ -47,23 +55,18 @@
     </div>
 
     <div class="navbar-end">
-      <a href="mailto:hey@bartmann.xyz" class="btn btn-ghost btn-circle">
-        <div class="indicator">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-            />
-          </svg>
-        </div>
-      </a>
+      {
+        session != null && (
+          <SignOut class="btn hover:bg-snd mx-2 normal-case">Logout</SignOut>
+        )
+      }
+      {
+        session == null && (
+          <SignIn class="btn mx-2 normal-case" provider="github">
+            Login
+          </SignIn>
+        )
+      }
     </div>
   </div>
 </nav>
