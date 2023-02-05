@@ -1,5 +1,5 @@
 <script>
-  import {createChart} from 'lightweight-charts';
+  import { createChart } from "lightweight-charts";
 
   const chart = createChart(document.getElementById("chart"), {
     layout: {
@@ -45,10 +45,12 @@
   });
 </script>
 
-<div class="card w-3/5 shadow-xl">
-  <div class="card-body">
-    <div class="m-6 flex h-60 min-w-fit justify-center rounded-lg bg-snd">
-      <div id="chart" class="h-10/12 w-10/12"></div>
-    </div>
+<div class="card card-compact bg-white shadow-xl">
+  <div class="card-body m-2 text-mainred">
+    <h2 class="card-title">Testchart!</h2>
+    <p>If a dog chews shoes whose shoes does he choose?</p>
+  </div>
+  <div class="m-2 flex h-60 min-w-fit justify-center rounded-lg bg-snd">
+    <div id="chart" class="h-10/12 w-10/12"></div>
   </div>
 </div>
