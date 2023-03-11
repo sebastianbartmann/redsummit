@@ -19,7 +19,9 @@ const { title } = Astro.props;
     <meta name="description" content="climbing the red mountain" />
     <title>{title}</title>
   </head>
-  <body class="flex h-screen flex-col justify-between bg-mainred text-white">
+  <body
+    class="flex min-h-screen flex-col justify-between bg-mainred text-white"
+  >
     <Header />
     <main>
       <slot />

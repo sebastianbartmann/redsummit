@@ -22,6 +22,7 @@ const config = {
       snd: "#860313",
       high: "#ed8a9d",
       dark: "#1c1d19",
+      link: "#F48EA3",
       c1: "#F48EA3",
       c2: "#FE7472",
       c3: "#F64143",
