@@ -3,16 +3,22 @@
   let posts: Array<Post>;
   posts = [
     {
-      title: "how it started",
-      slug: "how-it-started",
-      creation_date: "2021-10-13",
-      category: "personal",
+      title: "sleep better with active gcp services",
+      slug: "architecture/gcp/sleep-better-with-active-gcp-services",
+      creation_date: "2023-03-11",
+      category: "principles",
     },
     {
       title: "have a basic structure",
       slug: "principles/have-a-basic-structure",
       creation_date: "2021-12-08",
       category: "principles",
+    },
+    {
+      title: "how it started",
+      slug: "how-it-started",
+      creation_date: "2021-10-13",
+      category: "personal",
     },
   ];
 </script>
