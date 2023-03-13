@@ -14,7 +14,7 @@
     "@astrojs/netlify": "^2.1.1",
     "@astrojs/svelte": "^2.0.0",
     "@astrojs/tailwind": "^3.0.0",
-    "astro": "^2.0.5",
+    "astro": "^2.1.0",
     "daisyui": "^2.49.0",
     "lightweight-charts": "^3.8.0",
     "svelte": "^3.55.1",
