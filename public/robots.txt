@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://redsummit.dev/sitemap-index.xml
