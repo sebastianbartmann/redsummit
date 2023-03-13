@@ -4,12 +4,7 @@
   import { getWeeklyMedianPrices } from "../../services/gcp-services/getAppartmentWeeklyMedianPrices.js";
   import { onMount } from "svelte";
 
-  let data = [
-    { time: "2022-10-02", value: 899 },
-    { time: "2022-10-09", value: 929 },
-    { time: "2022-10-16", value: 959 },
-    { time: "2022-11-16", value: 959 },
-  ];
+  let data = [];
 
   let isLoading = true;
 
@@ -76,7 +71,7 @@
     <p>
       For details have a look at <a
         class="text-link"
-        href="/dashboards/overview">the project breakdown</a
+        href="/projects/weeklyMedianAppartmentPrice">the project breakdown</a
       >.
     </p>
     <p>This is live data, updated weekly.</p>

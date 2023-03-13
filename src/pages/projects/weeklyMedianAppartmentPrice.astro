@@ -1,0 +1,23 @@
+---
+export const prerender = true;
+
+import Layout from "../../layouts/Layout.astro";
+
+let title = "Weekly median appartment prices in vienna";
+---
+
+<Layout title={title}>
+    <div class="m-auto max-w-screen-md p-6">
+        <div>
+            <h1 class="text-4xl">Weekly median appartment prices in vienna</h1>
+            <br />
+
+            <a href="/project_images/wohnungscrawler.webp">
+                <img
+                    alt="sleep-well-at-night"
+                    src="/project_images/wohnungscrawler.webp"
+                /></a
+            >
+        </div>
+    </div>
+</Layout>
