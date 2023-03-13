@@ -1,23 +1,11 @@
 ---
 export const prerender = true;
 
-import { getWeeklyMedianPrices } from "../services/gcp-services/getAppartmentWeeklyMedianPrices.js";
 import Layout from "../layouts/Layout.astro";
 
-const data = await getWeeklyMedianPrices();
-var entries = [];
-
-entries = JSON.parse(data.body);
+let title = "test";
 ---
 
-<Layout title="redsummit">
-    <ul>
-        {
-            entries.map((item) => (
-                <li>
-                    {item.time} - {item.value}
-                </li>
-            ))
-        }
-    </ul>
+<Layout title={title}>
+    <div class="my-12">test</div>
 </Layout>

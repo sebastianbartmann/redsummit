@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import WeeklyMedianAppartmentPrice from "../../components/dashboards/WeeklyMedianAppartmentPrice.astro";
+import WeeklyMedianAppartmentPrice from "../../components/dashboards/WeeklyMedianAppartmentPrice.svelte";
 
 let title = "comming soon";
 ---
 
 <Layout title={title}>
   <div class="m-auto max-w-screen-md p-2">
-    <WeeklyMedianAppartmentPrice />
+    <WeeklyMedianAppartmentPrice client:only="svelte" />
   </div>
 </Layout>
