@@ -71,7 +71,7 @@
     <p>
       For details have a look at <a
         class="text-link"
-        href="/projects/weeklyMedianAppartmentPrice">the project breakdown</a
+        href="/projects/weekly-median-appartment-price">the project breakdown</a
       >.
     </p>
     <p>This is live data, updated weekly.</p>

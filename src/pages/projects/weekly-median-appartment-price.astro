@@ -1,0 +1,74 @@
+---
+export const prerender = true;
+
+import { YouTube } from "@astro-community/astro-embed-youtube";
+import Layout from "../../layouts/Layout.astro";
+
+let title = "Weekly median appartment prices in vienna";
+---
+
+<Layout title={title}>
+  <div class="m-auto max-w-screen-md p-6">
+    <div>
+      <h1 class="text-4xl">Weekly median appartment prices in vienna</h1>
+      <p class="my-4">
+        This project has been set up to show the weekly median apartment prices
+        of Vienna.
+      </p><p class="my-4">
+        Have a look at the result: <a
+          class="text-link"
+          href="/dashboards/overview">Appartment Dashboard.</a
+        >
+      </p>
+
+      <div>
+        <YouTube class="rounded-2xl border-4 border-white" id="LZzZSfnbByg" />
+        <span class="text-sm italic"
+          >Video explaining the project breakdown</span
+        >
+      </div>
+
+      <div class="my-4">
+        <p class="my-4">
+          To acomplish this project, a crawler is used twice a week to search
+          for listings of apartments and houses. This crawler is powered by
+          <a class="text-link" href="https://hexomatic.com/">Hexomatic</a> and extracts
+          information from the first 25 listing (search result) pages, writing it
+          into a Google Spreadsheet.
+        </p><p class="my-4">
+          Every Saturday, an application script runs to clean and sanitize the
+          data in the input sheet, before writing it into the output sheet. This
+          data is then loaded every Sunday into a <a
+            class="text-link"
+            href="https://cloud.google.com/bigquery">BigQuery</a
+          > table using scheduled queries.
+        </p>
+        <p class="my-4">
+          From a GCP API Gateway a cloud function is called which queries a view
+          which calculates the weekly median.
+        </p><p class="my-4">
+          <a class="text-link" href="https://astro.build/">Astro</a> is used as the
+          frontend framework. The data is loaded directly from the API Gateway into
+          a <a class="text-link" href="https://svelte.dev/">svelte</a> component,
+          using <a
+            class="text-link"
+            href="https://www.tradingview.com/lightweight-charts/"
+            >lightweight charts</a
+          > to create the graph of the median apartment prices.
+        </p><p class="my-4">
+          In the future, more views and reports will be added to the dashboard,
+          as well as detailed reporting on the data extracted by the crawler.
+        </p>
+      </div><div class="my-4">
+        <p>The ETL process looks like this:</p>
+        <a href="/project_images/wohnungscrawler.webp">
+          <img
+            class="rounded-2xl border-2 border-white"
+            alt="sleep-well-at-night"
+            src="/project_images/wohnungscrawler.webp"
+          /></a
+        >
+      </div>
+    </div>
+  </div>
+</Layout>
