@@ -1,7 +1,7 @@
 <script>
   import { Chart, LineSeries } from "svelte-lightweight-charts";
   import { ColorType } from "lightweight-charts";
-  import { getWeeklyMedianPrices } from "../../services/gcp-services/getAppartmentWeeklyMedianPrices.js";
+  import { getWeeklyMedianPrices } from "../../services/gcp-services/getApartmentWeeklyMedianPrices.js";
   import { onMount } from "svelte";
 
   let data = [];
@@ -63,15 +63,15 @@
 
 <div class="card-compact card bg-white shadow-xl">
   <div class="card-body m-2 text-mainred">
-    <h2 class="card-title">Weekly median appartment prices in vienna</h2>
+    <h2 class="card-title">Weekly median apartment prices in vienna</h2>
     <p>
-      Crawled directly from appartment listings, twice a week. No filter, just
+      Crawled directly from apartment listings, twice a week. No filter, just
       the median.
     </p>
     <p>
       For details have a look at <a
         class="text-link"
-        href="/projects/weekly-median-appartment-price">the project breakdown</a
+        href="/projects/weekly-median-apartment-price">the project breakdown</a
       >.
     </p>
     <p>This is live data, updated weekly.</p>
