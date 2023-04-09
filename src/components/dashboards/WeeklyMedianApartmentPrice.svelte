@@ -1,17 +1,17 @@
 <script>
   import { Chart, LineSeries } from "svelte-lightweight-charts";
   import { ColorType } from "lightweight-charts";
-  import { getWeeklyMedianPrices } from "@services/gcp-services/getAppartmentWeeklyMedianPrices.js";
   import { onMount } from "svelte";
+  import { getWeeklyMedianPrices } from "@services/gcp-services/getAppartmentWeeklyMedianPrices.js";
 
-  let data = [];
+  let medianAppartmentData = [];
 
   let isLoading = true;
 
   async function fetchData() {
     isLoading = true;
     const response = await getWeeklyMedianPrices();
-    data = JSON.parse(response.body);
+    medianAppartmentData = JSON.parse(response.body);
     isLoading = false;
   }
 
@@ -86,7 +86,7 @@
         {...options}
         {localization}
       >
-        <LineSeries {data} color="#eee5f7" lineWidth="2" />
+        <LineSeries data={medianAppartmentData} color="#eee5f7" lineWidth="2" />
       </Chart>
     {/if}
   </div>
