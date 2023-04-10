@@ -8,5 +8,8 @@
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
     }
-  }
+  },
+  "exclude": [
+      "node_modules",
+  ]
 }
