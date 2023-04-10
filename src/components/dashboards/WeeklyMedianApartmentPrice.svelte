@@ -1,7 +1,6 @@
 <script>
   import { Chart, LineSeries } from "svelte-lightweight-charts";
   import { ColorType } from "lightweight-charts";
-  import { onMount } from "svelte";
   import { getWeeklyMedianPrices } from "@services/gcp/getAppartmentWeeklyMedianPrices.js";
 
   let medianAppartmentData = [];

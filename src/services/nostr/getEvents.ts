@@ -7,6 +7,7 @@ import {
 } from "nostr-tools";
 
 import { NostrEvent } from "@services/nostr/types";
+import { getPubkeys } from "@services/nostr/identities";
 
 import "websocket-polyfill";
 
@@ -25,11 +26,9 @@ export async function getEvents(): Promise<NostrEvent[]> {
 
   let events = await relay.list([
     {
-      authors: [
-        "090254801a7e8e5085b02e711622f0dfa1a85503493af246aa42af08f5e4d2df"
-      ],
+      authors: getPubkeys(),
       kinds: [1],
-      limit: 20,
+      limit: 50,
     },
   ]);
 

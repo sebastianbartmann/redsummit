@@ -1,9 +1,7 @@
 ---
-export const prerender = true;
-
 import Layout from "@layouts/Layout.astro";
 
-import EventFeed from "@components/nostr/EventFeed.svelte";
+import NostrEventFeed from "@components/nostr/NostrEventFeed.svelte";
 
 let title = "Building a custom nostr client";
 ---
@@ -13,6 +11,6 @@ let title = "Building a custom nostr client";
     <div>
       <h1 class="text-4xl">Building a custom nostr client</h1>
     </div>
-    <EventFeed />
+    <NostrEventFeed client:only="svelte" />
   </div>
 </Layout>
