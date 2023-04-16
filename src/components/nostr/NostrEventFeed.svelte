@@ -1,5 +1,5 @@
 <script>
-import { getEvents } from "@services/nostr/getEvents.ts";
+import { getEvents } from "@services/nostr/EventManager/getEvents";
 import NostrEvent from "@components/nostr/NostrEvent.svelte";
 
 let isLoading = true;

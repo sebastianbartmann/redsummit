@@ -7,14 +7,18 @@ import {
 } from "nostr-tools";
 
 import { NostrEvent } from "@services/nostr/types";
-import { getPubkeys } from "@services/nostr/identities";
 
 import "websocket-polyfill";
 
+const queryLimit = 25;
+
 let nostrEvents: NostrEvent[] = [];
 
-export async function getEvents(): Promise<NostrEvent[]> {
-  const relay = relayInit("wss://relay.damus.io");
+export async function getEvents(
+  relayAddress: string = "wss://relay.damus.io",
+  authors: string[] = undefined
+): Promise<NostrEvent[]> {
+  const relay = relayInit(relayAddress);
   relay.on("connect", () => {
     console.log(`connected to ${relay.url}`);
   });
@@ -24,13 +28,14 @@ export async function getEvents(): Promise<NostrEvent[]> {
 
   await relay.connect();
 
-  let events = await relay.list([
-    {
-      authors: getPubkeys(),
-      kinds: [1],
-      limit: 50,
-    },
-  ]);
+  let query = {
+    kinds: [1],
+    limit: queryLimit,
+  };
+
+  if (authors) query.authors = authors;
+
+  let events = await relay.list([query]);
 
   return events;
 }
