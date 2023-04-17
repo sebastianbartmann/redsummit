@@ -1,20 +1,54 @@
+import {
+  relayInit,
+  generatePrivateKey,
+  getPublicKey,
+  getEventHash,
+  signEvent,
+} from "nostr-tools";
+
 import { getEvents } from "@services/nostr/EventManager/getEvents";
+import { getAllEvents } from "@services/nostr/EventManager/getAllEvents";
+import { getEvent } from "@services/nostr/EventManager/getEvent";
+
 import { getPubkeys } from "@services/nostr/identities";
+import "websocket-polyfill";
 
-//get all Events from all identities
-export async function getAllEvents(): Promise<NostrEvent[]> {
-  let nostrEvents = [];
+export class EventManager {
+  constructor() {
+    this.pubKeys = getPubkeys();
+    this.relay = relayInit("wss://relay.damus.io");
 
-  let identities = await getPubkeys();
+    this.connect();
+  }
 
-  await Promise.all(
-    identities.map(async (pubKey) => {
-      let events = await getEvents("wss://relay.damus.io", [pubKey]);
-      nostrEvents.push(...events);
-    })
-  );
+  async connect() {
+    this.relay.on("connect", () => {
+      console.log(`connected to ${this.relay.url}`);
+    });
+    this.relay.on("error", () => {
+      console.log(`failed to connect to ${this.relay.url}`);
+    });
 
-  nostrEvents.sort((b, a) => a.created_at - b.created_at); // Sort by date
+    await this.relay.connect();
+  }
 
-  return nostrEvents;
+  async getAllEvents() {
+    const events = await getAllEvents(this.relay, this.pubKeys);
+    return events;
+  }
+
+  async getEvents() {
+    const events = await getEvents(this.relay, this.pubKeys);
+    return events;
+  }
+
+  async getEvent(id) {
+    const events = await getEvent(this.relay, id);
+    return events;
+  }
+
+  async getQuote(eventId) {
+    const event = this.getEvent(eventId);
+    return event;
+  }
 }

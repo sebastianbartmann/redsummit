@@ -3,14 +3,11 @@ import Layout from "@layouts/Layout.astro";
 
 import NostrEventFeed from "@components/nostr/NostrEventFeed.svelte";
 
-let title = "Building a custom nostr client";
+let title = "nostr";
 ---
 
 <Layout title={title}>
   <div class="m-auto max-w-screen-md p-6">
-    <div>
-      <h1 class="text-4xl">Building a custom nostr client</h1>
-    </div>
     <NostrEventFeed client:only="svelte" />
   </div>
 </Layout>

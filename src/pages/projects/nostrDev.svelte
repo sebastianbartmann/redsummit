@@ -1,7 +1,6 @@
 <script>
 import { getName } from "@services/nostr/identities";
-//import { getEvents } from "@services/nostr/EventManager/getEvents";
-import { getAllEvents } from "@services/nostr/EventManager";
+import { EventManager } from "@services/nostr/EventManager";
 import { getPubkeys } from "@services/nostr/identities";
 
 let isLoading = true;
@@ -9,6 +8,9 @@ let nostrEvents = [];
 let nostrEventNames = [];
 
 const relay = "wss://nostr.wine";
+
+const eventManager = new EventManager();
+
 /*
 const relay = "wss://nos.lol";
 const relay = "wss://lightningrelay.com";
@@ -24,19 +26,70 @@ $: {
   fetchData();
 }
 
+async function queryQuotedEvent(event) {
+  var ret = "";
+  // todo: more than one response possible
+  if (event.tags && event.tags[0] && event.tags[0][0] == "e") {
+    var x = await eventManager.getEvent(event.tags[1]);
+    ret = x;
+  }
+  return ret;
+}
+
+let eventX = "x";
+
+async function getX() {
+  eventX = JSON.stringify(
+    await eventManager.getEvent(
+      "20c818b2fd3ec6f3cd8ee00ed84074570427642818e9627c6b5f576d5f1d3145"
+    )
+  );
+  const comment = eventX;
+  console.log(eventX);
+  return eventX;
+}
+
+getX();
+
+async function getComment(event) {
+  let ret = "";
+  if (event && event[0] && event[0][0] && event[0][0] == "e") {
+    ret = JSON.stringify(
+      await eventManager.getEvent(
+        "20c818b2fd3ec6f3cd8ee00ed84074570427642818e9627c6b5f576d5f1d3145"
+      )
+    );
+  }
+  console.log(ret);
+  return ret;
+}
+
+$: {
+  console.log(eventX);
+}
+
 async function fetchData() {
   isLoading = true;
-  nostrEvents = await getAllEvents(relay, getPubkeys());
+  nostrEvents = await eventManager.getAllEvents(relay, getPubkeys());
 
   nostrEvents.forEach((x) => {
     nostrEventNames.push({
       name: getName(x.pubkey),
       date: new Date(x.created_at * 1000).toLocaleDateString("de-DE"),
       content: x.content,
+      tags: x.tags,
     });
   });
 
   isLoading = false;
+}
+
+async function getEventQuote(event) {
+  let ret = "nope";
+  if (event && event.tags[0] && event.tags[0][0] && event.tags[0][0] == "e") {
+    ret = await eventManager.getEvent(event.tags[0][1]);
+  }
+  return JSON.stringify(ret);
 }
 </script>
 
@@ -50,7 +103,23 @@ async function fetchData() {
         {event.date} - {event.name}
         <br />
         {event.content}
+        <br />
       </li>
+      {#await getEventQuote(event)}
+        <div class="border-2">
+          <p>Loading quote...</p>
+        </div>
+      {:then quote}
+        {#if quote != "nope"}
+          <div class="border-2">
+            <p>{quote}</p>
+          </div>
+        {/if}
+      {:catch error}
+        <div class="border-2">
+          <p>Error: {error.message}</p>
+        </div>
+      {/await}
     {/each}
   {/if}
 </div>

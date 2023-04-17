@@ -42,6 +42,10 @@ export function getPubkeys(): string[] {
   return identities.map((identity) => identity.pubkey);
 }
 
+export function getNames(): string[] {
+  return identities.map((identity) => identity.name);
+}
+
 export function getName(pubkey: string): string {
   let name = identities.find((identity) => identity.pubkey == pubkey)?.name;
   return name != undefined ? name : "unknown";

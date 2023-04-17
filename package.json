@@ -18,6 +18,7 @@
     "@astrojs/tailwind": "^3.0.0",
     "astro": "^2.1.0",
     "daisyui": "^2.49.0",
+    "dompurify": "^3.0.2",
     "lightweight-charts": "^4.0.0",
     "nostr-tools": "^1.8.3",
     "svelte": "^3.55.1",
