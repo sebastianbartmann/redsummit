@@ -1,5 +1,5 @@
 {
-  "name": "@example/basics",
+  "name": "redsummit",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -18,13 +18,17 @@
     "@astrojs/tailwind": "^3.0.0",
     "astro": "^2.1.0",
     "daisyui": "^2.49.0",
+    "dompurify": "^3.0.2",
     "lightweight-charts": "^4.0.0",
+    "nostr-tools": "^1.8.3",
     "svelte": "^3.55.1",
     "svelte-lightweight-charts": "^2.1.0",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "websocket-polyfill": "^0.0.3"
   },
   "devDependencies": {
     "prettier": "^2.8.3",
+    "prettier-plugin-svelte": "^2.10.0",
     "prettier-plugin-tailwindcss": "^0.2.2"
   }
 }

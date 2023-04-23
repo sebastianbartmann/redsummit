@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Post } from "../../pages/blog/posts/post";
+  import type { Post } from "@pages/blog/posts/post";
   let posts: Array<Post>;
   posts = [
     {
