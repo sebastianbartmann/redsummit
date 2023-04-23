@@ -5,7 +5,7 @@ export function makeLinksClickable(text) {
   const html = text.replace(urlRegex, (url) => {
     return `<a class="text-dark" href="${url}" target="_blank">${extractDomainFromUrl(
       url
-    )}/cut</a>`;
+    )}/shorted</a>`;
   });
   return DOMPurify.sanitize(html);
 }
