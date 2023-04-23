@@ -1,13 +1,14 @@
 <script>
 import { EventManager } from "@services/nostr/EventManager";
-import { getNames } from "@services/nostr/identities";
+import { IdentityService } from "@services/nostr/IdentityService";
 import NostrEvent from "@components/nostr/NostrEvent.svelte";
 import { onMount } from "svelte";
 
 let isLoading = true;
 let nostrEvents = [];
 let auto_load = false;
-const eventManager = new EventManager();
+const identityService = IdentityService.getInstance();
+const eventManager = EventManager.getInstance();
 
 async function fetchData() {
   isLoading = true;
@@ -75,12 +76,20 @@ onMount(loadSetting);
         <div class="card-body">
           <h2 class="card-title">Identities:</h2>
           <ul class="list-disc pl-4">
-            {#each getNames() as name}
+            {#each identityService.getNames() as name}
               <li>{name}</li>
             {/each}
           </ul>
         </div>
       </div>
+      <!--<div class="card m-4 w-full bg-mainred shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Relays:</h2>
+          {#each identityService.getRelays() as relay}
+            <li>{relay.name}</li>
+          {/each}
+        </div>
+      </div>-->
       <div class="card m-4 w-full bg-mainred shadow-xl">
         <div class="card-body">
           <h2 class="card-title">Information:</h2>

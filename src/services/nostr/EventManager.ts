@@ -7,18 +7,29 @@ import {
 } from "nostr-tools";
 
 import { getEvents } from "@services/nostr/EventManager/getEvents";
-import { getAllEvents } from "@services/nostr/EventManager/getAllEvents";
 import { getEvent } from "@services/nostr/EventManager/getEvent";
+import { getAllEvents } from "@services/nostr/EventManager/getAllEvents";
 
-import { getPubkeys } from "@services/nostr/identities";
+import { IdentityService } from "@services/nostr/IdentityService";
+
 import "websocket-polyfill";
 
 export class EventManager {
+  private static instance: EventManager;
+
   constructor() {
-    this.pubKeys = getPubkeys();
+    this.identityService = IdentityService.getInstance();
+    this.pubKeys = this.identityService.getPubkeys();
     this.relay = relayInit("wss://relay.damus.io");
 
     this.connect();
+  }
+
+  public static getInstance(): EventManager {
+    if (!this.instance) {
+      this.instance = new EventManager();
+    }
+    return this.instance;
   }
 
   async connect() {

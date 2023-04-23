@@ -1,15 +1,15 @@
 <script>
-import { getName } from "@services/nostr/identities";
 import { EventManager } from "@services/nostr/EventManager";
-import { getPubkeys } from "@services/nostr/identities";
+import { IdentityService } from "@services/nostr/IdentityService";
 
 let isLoading = true;
 let nostrEvents = [];
 let nostrEventNames = [];
+const identityService = IdentityService.getInstance();
 
 const relay = "wss://nostr.wine";
 
-const eventManager = new EventManager();
+const eventManager = EventManager.getInstance();
 
 /*
 const relay = "wss://nos.lol";
@@ -74,7 +74,7 @@ async function fetchData() {
 
   nostrEvents.forEach((x) => {
     nostrEventNames.push({
-      name: getName(x.pubkey),
+      name: identityService.getName(x.pubkey),
       date: new Date(x.created_at * 1000).toLocaleDateString("de-DE"),
       content: x.content,
       tags: x.tags,

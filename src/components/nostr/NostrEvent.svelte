@@ -1,20 +1,21 @@
 <script>
-import { getName } from "@services/nostr/identities";
 import NostrEventQuote from "@components/nostr/NostrEventQuote.svelte";
 import { makeLinksClickable } from "@services/utility/urlUtility";
+import { IdentityService } from "@services/nostr/IdentityService";
 
 export let nostrEvent;
 export let eventManager;
 
+const identityService = IdentityService.getInstance();
 let nostrTags = nostrEvent.tags;
 </script>
 
-<div class="card-compact card m-2 bg-white shadow-xl">
+<div class="card card-compact m-2 bg-white shadow-xl">
   <div class="card-body m-2 text-mainred">
     <h2 class="card-title">
       {new Date(nostrEvent.created_at * 1000).toLocaleString("de-DE")}
     </h2>
-    <p class="font-bold">{getName(nostrEvent.pubkey)}</p>
+    <p class="font-bold">{identityService.getName(nostrEvent.pubkey)}</p>
     <p>
       {@html makeLinksClickable(nostrEvent.content)}
     </p>
