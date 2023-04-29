@@ -10,7 +10,7 @@ const identityService = IdentityService.getInstance();
 let nostrTags = nostrEvent.tags;
 </script>
 
-<div class="card card-compact m-2 bg-white shadow-xl">
+<div class="card-compact card m-2 break-words bg-white shadow-xl">
   <div class="card-body m-2 text-mainred">
     <h2 class="card-title">
       {new Date(nostrEvent.created_at * 1000).toLocaleString("de-DE")}
