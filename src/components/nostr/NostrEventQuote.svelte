@@ -7,7 +7,7 @@ export let eventManager;
 export let eventId;
 </script>
 
-<div>
+<div class="break-words">
   {#await eventManager.getQuote(eventId)}
     <p>Loading quote...</p>
   {:then quote}
