@@ -36,11 +36,6 @@ export class IdentityService {
           "85080d3bad70ccdcd7f74c29a44f55bb85cbcd3dd0cbb957da1d215bdb931204",
       },
       {
-        name: "thecryptoc0up1e",
-        pubkey:
-          "bf2376e17ba4ec269d10fcc996a4746b451152be9031fa48e74553dde5526bce",
-      },
-      {
         name: "LynAldenContact",
         pubkey:
           "eab0e756d32b80bcd464f3d844b8040303075a13eabc3599a762c9ac7ab91f4f",

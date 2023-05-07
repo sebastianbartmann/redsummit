@@ -1,14 +1,138 @@
 ---
 import Layout from "@layouts/Layout.astro";
 
-let title = "Building a custom nostr client";
+let title = "Exploring the Nostr Protocol: Building a Usable Client MVP";
 ---
 
 <Layout title={title}>
   <div class="m-auto max-w-screen-md p-6">
     <div>
-      <h1 class="text-4xl">Building a custom nostr client</h1>
+      <h1 class="text-4xl">
+        Exploring the Nostr Protocol:<br /> Building a Usable Client MVP
+      </h1>
     </div>
-    This is <a class="text-link" href="/nostr-client">the final result</a>
+    <h2 class="my-4 text-2xl font-semibold">Project Goal</h2>
+    <p class="mb-6">
+      The objective of this project was to gain a deeper understanding of the
+      Nostr protocol at a technical level by implementing it in a practical
+      application.
+    </p>
+
+    <h2 class="mb-4 text-2xl font-semibold">What is Nostr?</h2>
+    <p class="mb-6">
+      Nostr, which stands for "Notes and Other Stuff Transmitted by Relays," is
+      a networking protocol that has gained popularity in the Bitcoin community.
+      It uses the same cryptographic methods as Bitcoin to manage identities,
+      specifically employing public/private key encryption. Nostr also follows
+      the same development practices with its Nostr Improvement Protocols (NIPs)
+      that, once approved, can be implemented by clients and relays. The first
+      NIP defines an event, which can be sent to relays and to which clients can
+      subscribe.
+    </p>
+    <p class="mb-6">
+      For more information about Nostr, visit: <a
+        href="https://github.com/nostr-protocol/nostr"
+        class="text-blue-500 underline"
+      >
+        https://github.com/nostr-protocol/nostr
+      </a>
+    </p>
+
+    <h2 class="mb-4 text-2xl font-semibold">
+      The Project: Building a Usable Client MVP
+    </h2>
+    <p class="mb-6">
+      Unsatisfied with the existing clients, I aimed to create a minimum viable
+      product (MVP) for a more user-friendly Nostr client.
+    </p>
+
+    <h2 class="mb-4 text-2xl font-semibold">User Story and Features</h2>
+    <p class="mb-6">
+      The primary user story was simple: as a user, I want to be able to read
+      all messages from a specific set of people. To achieve this, I needed to
+      implement the following features:
+    </p>
+    <ol class="mb-6 list-decimal pl-8">
+      <li>Connect to a relay</li>
+      <li>Read and filter messages, either on the relay or locally</li>
+      <li>
+        Read quoted messages and display them in a visually appealing manner
+      </li>
+      <li>Provide basic configuration options for identities</li>
+    </ol>
+
+    <h2 class="mb-4 text-2xl font-semibold">My Approach</h2>
+    <p class="mb-6">
+      I began by visiting <a
+        href="https://www.nostr.directory/"
+        class="text-blue-500 underline"
+      >
+        https://www.nostr.directory/
+      </a> to find some identities to read in my client. Then, I searched for public
+      implementations to learn the technical aspects from existing code. I found
+      <a
+        href="https://github.com/nbd-wtf/nostr-tools#readme"
+        class="text-blue-500 underline"
+      >
+        https://github.com/nbd-wtf/nostr-tools#readme
+      </a>, a simple and effective package that abstracts some lower-level
+      details.
+    </p>
+
+    <p class="mb-6">
+      Nostr employs WebSockets, a relatively new protocol for creating
+      connections between a browser and a server. I had previous experience with
+      WebSockets while building software to update firmware on trams, so I felt
+      comfortable working with the protocol. It's great to see WebSockets being
+      used, as they are incredibly simple and efficient.
+    </p>
+
+    <p class="mb-6">
+      After choosing nostr-tools as the foundation for my client, I began
+      loading messages from relays. This process was straightforward, requiring
+      only some sorting. Next, I added a playground page to explore different
+      event types and quotes, restructured the methods for loading events, and
+      designed an appealing front-end.
+    </p>
+
+    <p class="mb-6">
+      Finally, I included a configuration component and some documentation. Most
+      of my time was spent working with Tailwind CSS and structuring Svelte
+      components.
+    </p>
+
+    <p class="mb-6">
+      The source code can be found on the Redsummit GitHub repository here: <a
+        href="https://github.com/sebastianbartmann/redsummit/pull/1/files"
+        class="text-blue-500 underline"
+      >
+        https://github.com/sebastianbartmann/redsummit/pull/1/files
+      </a>
+    </p>
+
+    <p class="mb-6">
+      You can test the current version here: <a
+        href="/nostr-client"
+        class="text-blue-500 underline"
+      >
+        https://redsummit.dev/nostr-client
+      </a>
+    </p>
+
+    <h2 class="mb-4 text-2xl font-semibold">My Thoughts</h2>
+    <p class="mb-6">
+      As a developer, I find these times to be extraordinary. The Bitcoin and
+      wider crypto communities are brimming with creative energy, and tools like
+      Nostr are prime examples of this innovation. Building software has become
+      much more accessible, but widespread digitalization requires active
+      participation from every member of society. The Bitcoin community has
+      fostered pockets of people who are rethinking old norms, as exemplified in
+      this lovely video: <a
+        href="https://www.youtube.com/watch?v=MWmfDSxtvi0"
+        class="text-blue-500 underline"
+      >
+        https://www.youtube.com/watch?v=MWmfDSxtvi0
+      </a>
+    </p>
   </div>
 </Layout>

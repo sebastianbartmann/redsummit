@@ -13,16 +13,15 @@ let nostrTags = nostrEvent.tags;
 <div class="card-compact card m-2 break-words bg-white shadow-xl">
   <div class="card-body m-2 text-mainred">
     <h2 class="card-title">
-      {new Date(nostrEvent.created_at * 1000).toLocaleString("de-DE")}
+      {identityService.getName(nostrEvent.pubkey)} - {new Date(nostrEvent.created_at * 1000).toLocaleString("de-DE")}
     </h2>
-    <p class="font-bold">{identityService.getName(nostrEvent.pubkey)}</p>
-    <p>
-      {@html makeLinksClickable(nostrEvent.content)}
-    </p>
     {#each nostrTags as tag}
       {#if tag[0] == "e"}
         <NostrEventQuote eventManager="{eventManager}" eventId="{tag[1]}" />
       {/if}
     {/each}
+    <p>
+      {@html makeLinksClickable(nostrEvent.content)}
+    </p>
   </div>
 </div>
