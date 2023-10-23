@@ -1,4 +1,4 @@
-import { NostrEvent } from "@services/nostr/types";
+import type { NostrEvent } from "@services/nostr/types";
 import { getEvents } from "@services/nostr/EventManager/getEvents";
 
 //get all Events from all identities

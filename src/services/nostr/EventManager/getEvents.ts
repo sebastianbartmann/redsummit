@@ -1,4 +1,4 @@
-import { NostrEvent } from "@services/nostr/types";
+import type { NostrEvent } from "@services/nostr/types";
 
 export async function getEvents(
   relay: object,
