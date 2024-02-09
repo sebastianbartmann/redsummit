@@ -47,7 +47,7 @@
     </div>
 
     <div class="navbar-end">
-      <a href="mailto:hey@bartmann.xyz" class="btn btn-ghost btn-circle">
+      <a href="mailto:hey@redsummit.dev" class="btn btn-ghost btn-circle">
         <div class="indicator">
           <svg
             xmlns="http://www.w3.org/2000/svg"
